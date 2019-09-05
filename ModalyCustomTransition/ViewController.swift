@@ -16,9 +16,9 @@ class ViewController: UIViewController {
         return interactor
     }()
     
-    lazy var secondViewButtom: UIButton = {
+    lazy var clickHereButtom: UIButton = {
        let buttom = UIButton()
-        buttom.setTitle("secondController", for: .normal)
+        buttom.setTitle("Click Here", for: .normal)
         buttom.addTarget(self, action: #selector(secondViewButtomDidTaped(_:)), for: .touchUpInside)
         buttom.setTitleColor(.blue, for: .normal)
         
@@ -36,9 +36,9 @@ class ViewController: UIViewController {
         //Configurações iniciais
         view.backgroundColor = .white
         
-        secondViewButtom.translatesAutoresizingMaskIntoConstraints = false
-        secondViewButtom.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        secondViewButtom.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        clickHereButtom.translatesAutoresizingMaskIntoConstraints = false
+        clickHereButtom.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        clickHereButtom.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
     }
     

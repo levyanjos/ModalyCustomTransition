@@ -12,11 +12,19 @@ class SecondViewController: UIViewController {
 
     var interactor: Interactor?
     
-    private lazy var panGesture: UIPanGestureRecognizer = {
+    private lazy var swipeDownPanGesture: UIPanGestureRecognizer = {
         let pan = UIPanGestureRecognizer()
         pan.addTarget(self, action: #selector(handleGesture(_:)))
         pan.minimumNumberOfTouches = 1
         return pan
+    }()
+    
+    private lazy var swipeDownLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Swipe Down"
+        
+        view.addSubview(label)
+        return label
     }()
     
     override func viewDidLoad() {
@@ -28,11 +36,16 @@ class SecondViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //Configurações iniciais
         view.backgroundColor = .lightGray
-        view.addGestureRecognizer(panGesture)
+        view.addGestureRecognizer(swipeDownPanGesture)
+        
+        swipeDownLabel.translatesAutoresizingMaskIntoConstraints = false
+        swipeDownLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        swipeDownLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
     }
     
     @objc private func handleGesture(_ sender: UIPanGestureRecognizer) {
+        //Variável de controle responsável por guardar valor do percentual de conclusão no qual a animação será chamada automáticamente. No caso, se a animação chegar aos seus 30% e o usuário soltar a tela ela será finalizada automáticamente.
         let percentThreshold:CGFloat = 0.3
         
         let translation = sender.translation(in: view)
