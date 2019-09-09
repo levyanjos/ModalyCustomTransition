@@ -60,13 +60,12 @@
 		D7CBA3212321BBE300D9D738 /* ModalyCustomTransition */ = {
 			isa = PBXGroup;
 			children = (
-				D7CBA3222321BBE300D9D738 /* AppDelegate.swift */,
-				D7CBA3242321BBE300D9D738 /* ViewController.swift */,
-				D7CBA3342321BD8000D9D738 /* SecondViewController.swift */,
-				D7CBA3292321BBE500D9D738 /* Assets.xcassets */,
-				D7CBA3362321BE3900D9D738 /* CustomTransition */,
 				D7CBA32B2321BBE500D9D738 /* LaunchScreen.storyboard */,
+				D7CBA3222321BBE300D9D738 /* AppDelegate.swift */,
+				D7CBA3292321BBE500D9D738 /* Assets.xcassets */,
 				D7CBA32E2321BBE500D9D738 /* Info.plist */,
+				D7E810B82325C11700B5A868 /* Controllers */,
+				D7CBA3362321BE3900D9D738 /* CustomTransition */,
 			);
 			path = ModalyCustomTransition;
 			sourceTree = "<group>";
@@ -79,6 +78,15 @@
 				D7CBA33B2321BEC400D9D738 /* PresentAnimation.swift */,
 			);
 			path = CustomTransition;
+			sourceTree = "<group>";
+		};
+		D7E810B82325C11700B5A868 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7CBA3242321BBE300D9D738 /* ViewController.swift */,
+				D7CBA3342321BD8000D9D738 /* SecondViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

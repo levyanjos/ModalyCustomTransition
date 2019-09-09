@@ -9,13 +9,16 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    
+    // MARK: Varibles
 
     var interactor: Interactor?
     
     private lazy var swipeDownPanGesture: UIPanGestureRecognizer = {
         let pan = UIPanGestureRecognizer()
-        pan.addTarget(self, action: #selector(handleGesture(_:)))
         pan.minimumNumberOfTouches = 1
+        
+        pan.addTarget(self, action: #selector(handleGesture(_:)))
         return pan
     }()
     
@@ -27,6 +30,8 @@ class SecondViewController: UIViewController {
         return label
     }()
     
+    // MARK: Application life cicle functions
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -34,7 +39,7 @@ class SecondViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //Configurações iniciais
+        //Inital setups
         view.backgroundColor = .lightGray
         view.addGestureRecognizer(swipeDownPanGesture)
         
@@ -44,8 +49,11 @@ class SecondViewController: UIViewController {
         
     }
     
+    // MARK: Functions
+
+    /** Functions responsible for hadle dismiss gesture in view. Here we set values to dismiss and compute animations dismiss progress. */
     @objc private func handleGesture(_ sender: UIPanGestureRecognizer) {
-        //Variável de controle responsável por guardar valor do percentual de conclusão no qual a animação será chamada automáticamente. No caso, se a animação chegar aos seus 30% e o usuário soltar a tela ela será finalizada automáticamente.
+        //Control variable responsible for saving dismiss animation percentage automatically completion value. If the animation reaches 30% and user releases it on the screen, it will end automatically.
         let percentThreshold:CGFloat = 0.3
         
         let translation = sender.translation(in: view)

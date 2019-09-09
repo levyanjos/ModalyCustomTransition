@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: Varibles
+    
     lazy var interactor: Interactor = {
        let interactor = Interactor()
         
@@ -25,7 +27,9 @@ class ViewController: UIViewController {
         view.addSubview(buttom)
         return buttom
     }()
-
+    
+    // MARK: Application life cicle functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -33,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //Configurações iniciais
+        //initial setups
         view.backgroundColor = .white
         
         clickHereButtom.translatesAutoresizingMaskIntoConstraints = false
@@ -42,24 +46,33 @@ class ViewController: UIViewController {
         
     }
     
+    // MARK: Functions
+    
+    /** Functions called when secondButtonView was tapped to present the second controller. */
     @objc func secondViewButtomDidTaped(_ buttom: UIButton){
         let secondViewController = SecondViewController()
         secondViewController.interactor = interactor
         secondViewController.transitioningDelegate = self
         present(secondViewController, animated: true, completion: nil)
+        
     }
 
 }
 
 extension ViewController: UIViewControllerTransitioningDelegate {
+    // MARK: Extension
+    
+    /** Functions to set custo transiton as present. */
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return PresentAnimation()
     }
     
+    /** Functions to set custo transiton as dusmiss. */
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissAnimation()
     }
     
+    /** Functions to set custo interactor for dismiss transition. */
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
