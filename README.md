@@ -1,5 +1,7 @@
 # ModalyCustomTransition
 
-Basic implementation from iOS present custom animation for iOS 11+, result:
+Custom modal Transion like iOS 13 for iOS 11+
+
+result:
 
 ![](ModalyCustomTransition.gif)
