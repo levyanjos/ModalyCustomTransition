@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     lazy var interactor: Interactor = {
        let interactor = Interactor()
-        
         return interactor
     }()
     
